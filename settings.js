@@ -1,5 +1,5 @@
-// Change Limmy to your Twitch channel
-const twitchChannel = 'camele0n_';
+// Change ChannelNameHere to your Twitch channel
+const twitchChannel = 'ChannelNameHere';
 
 // Your alert background. Default is a vibrant green
 const alertBg = '#00AA00';
