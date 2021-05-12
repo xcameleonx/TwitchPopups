@@ -2,13 +2,14 @@ const popup = {
     /**
      * Displays popup on screen with the given text and colour.
      */
-    showText: (text, bgColour) => {
+    showText: (effect, text, bgColour) => {
         $("#popupbox").show();
         $("#popuptext").html(text);
         $("#popupbox").css({ "background-color": bgColour });
         $("#popuptext").css({ "opacity": 0, "margin-left": "50px" });
 
         const textWidth = $("#popuptext").width();
+        $("#popupbox").addClass(effect);
         $("#popupbox").width(1);
         $("#popupbox").animate({ width: textWidth + 30 }, 500);
         $("#popuptext").animate({ "opacity": 1, "margin-left": "15px" }, 700);

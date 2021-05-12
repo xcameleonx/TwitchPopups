@@ -1,0 +1,38 @@
+.typed h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: 
+    typing 1.0s steps(30, end),
+    blink 0.5 step-end infinite;
+}
+
+.fill h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    transition: transform 1s ease-in, opacity 1s 1s;
+    transform: translate3d(0, 100%, 0);
+}
+
+
+.default h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: slide 1.0s;
+}
+
+/* Animations */
+
+@keyframes typing {
+    from { width: 0 }
+    to {width: 100% }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: #fff }
+}
+
+@keyframes slide {
+    from { width: 0 }
+    to { width: 100% }
+}

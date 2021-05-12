@@ -7,8 +7,9 @@ actionHandlers['!alert'] = {
         return context.mod || (context["badges-raw"] != null && context["badges-raw"].startsWith("broadcaster"))
     },
     handle: (context, textContent) => {
-        const formattedText = popup.formatEmotes(textContent, context.emotes, true).substr(7);
-        popup.showText(formattedText, alertBg);
+        const effectAndText = effects.parseEffect(textContent);
+        const formattedText = popup.formatEmotes(effect.content, context.emotes, true).substr(7);
+        popup.showText(effectAndText.effect, formattedText, alertBg);
         if (playAlertSound){
             new Audio(alertSoundFile).play();
         } 

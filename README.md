@@ -1,21 +1,21 @@
-# TwitchPopups
+# Twitch Effect Popups
 
-Allows Twitch mods to display popup text on the stream via chat commands
+Allows Twitch mods to display popup text with optional extra visual effects on the stream via chat commands. Forked from Limmy's [TwitchPopups](https://github.com/DaftLimmy/TwitchPopups)
 
 ## COMMAND LIST
 
-- !alert: will display whatever text comes after the !alert command
+- !alert <effect> "text": will display whatever text is provided using the optional visual effect
 - !spotlight [@username]: will display the chat of the specified user from that point on
 - !delete: will delete the popup
 
 ## DOWNLOAD
 
-The latest version of TwitchPopups can be found [as a zip archive here](https://github.com/DaftLimmy/TwitchPopups/archive/master.zip)
+The latest version of Twitch Effect Popups can be found [as a zip archive here](https://github.com/xcameleonx/TwitchPopups/archive/master.zip)
 
 ## INSTRUCTIONS
 
 1. Extract the zip archive
-2. Edit settings.js and change "Limmy" to your Twitch channel name
+2. Edit settings.js and change "ChannelNameHere" to your Twitch channel name
 3. Use OBS/Streamlabs OBS to add twitchpopups.htm as a browser source (Fit to Screen, 1920x1080)
 4. Tick "Shutdown source when not visible" in browser source properties. That way, any tweaks you make are reloaded when you toggle the visibility button
 
@@ -68,8 +68,18 @@ The popup helper contains a few functions so you don't need to worry about the a
 
 Methods:
 
-`popup.showText(text, bgColour)`: Displays popup on screen with the given text and colour.
+`popup.showText(effect, text, bgColour)`: Displays popup on screen with the given effect, text and colour.
 
 `popup.delete()`: Removes popup from screen and resets state of all commands. 
 
-`popup.formatEmotes(message, emotes, upperCase)`: Formats text with emotes, This must be past only and all message un-formatted or emotes wont be replaced properly. e.g `popup.formatEmotes('Hello Twitch', context.emotes, true).substr(7)` The substr function removes the !command, just change the number to the length of the command.
+`popup.formatEmotes(message, emotes, upperCase)`: Formats text with emotes, This must be passed only and all message un-formatted or emotes wont be replaced properly. e.g `popup.formatEmotes('Hello Twitch', context.emotes, true).substr(7)` The substr function removes the !command, just change the number to the length of the command.
+
+
+## EFFECTS
+The effects are simple CSS animations and transitions, these are applied to the popup if specified.
+
+- typed: The popup text will be displayed letter by letter like it's being typed.
+- fill: The popup will appear to slide up in to view
+- flip: The popup will appear to flip in to view
+- default: If no effect is specified, it will slide from left to right.
+- random: The popup will use a random effect.
